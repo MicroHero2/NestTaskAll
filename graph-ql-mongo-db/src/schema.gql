@@ -1,0 +1,62 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateGroupInput {
+  groups: [String!]!
+  name: String!
+}
+
+input CreateUserInput {
+  name: String!
+}
+
+type Group {
+  _id: String!
+  groups(populate: Boolean!): [Group!]!
+  name: String!
+}
+
+input ListGroupInput {
+  _id: String
+  groups: [String!]
+  name: String
+}
+
+input ListUserInput {
+  _id: String
+  name: String
+}
+
+type Mutation {
+  createGroup(payload: CreateGroupInput!): Group!
+  createUser(payload: CreateUserInput!): User!
+  deleteGroup(_id: String!): Group!
+  deleteUser(_id: String!): User!
+  getGroup(payload: CreateGroupInput!): Group!
+  updateGroup(payload: UpdateGroupInput!): Group!
+  updateUser(payload: UpdateUserInput!): User!
+}
+
+type Query {
+  Group(_id: String!): Group!
+  Groups(filters: ListGroupInput): [Group!]!
+  user(_id: String!): User!
+  users(filters: ListUserInput): User!
+}
+
+input UpdateGroupInput {
+  _id: String!
+  groups: [String!]
+  name: String
+}
+
+input UpdateUserInput {
+  _id: String!
+  name: String
+}
+
+type User {
+  _id: String!
+  name: String!
+}

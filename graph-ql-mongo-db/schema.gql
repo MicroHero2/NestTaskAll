@@ -1,0 +1,57 @@
+iinput CreateUserInput {
+  name: String!
+}
+
+input CreateGroupInput {
+  users: [String!]!
+  name: String!
+}
+
+type User {
+  _id: String!
+  name: String!
+}
+
+input ListUserInput {
+  _id: String
+  name: String
+}
+
+input ListGroupInput {
+  _id: String
+  users: [String!]
+  name: String
+}
+
+type Mutation {
+  createUser(payload: CreateUserInput!): User!
+  createGroup(payload: CreateGroupInput!): Group!
+  deleteUser(_id: String!): User!
+  deleteGroup(_id: String!): Group!
+  updateUser(payload: UpdateUserInput!): User!
+  updateGroup(payload: UpdateGroupInput!): Group!
+}
+
+type Group {
+  _id: String!
+  users(populate: Boolean!): [User!]!
+  name: String!
+}
+
+type Query {
+  users(filters: ListUserInput): [User!]!
+  User(_id: String!): User!
+  Group(_id: String!): Group!
+  Groups(filters: ListGroupInput): [Group!]!
+}
+
+input UpdateUserInput {
+  _id: String!
+  name: String
+}
+
+input UpdateGroupInput {
+  _id: String!
+  users: [String!]
+  name: String
+}
