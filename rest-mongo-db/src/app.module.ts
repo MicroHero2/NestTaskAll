@@ -11,7 +11,7 @@ import { Group, GroupSchema } from './schemas/group.schema';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: User.name, schema: UserSchema}, { name: Group.name, schema: GroupSchema}]),
-  MongooseModule.forRoot('mongodb://localhost:27017')
+  MongooseModule.forRoot('mongodb://localhost:27018')
   ],
   controllers: [AppController, UserController, GroupController],
   providers: [AppService, UserService, GroupService]
